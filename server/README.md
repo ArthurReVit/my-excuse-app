@@ -6,10 +6,57 @@ This will be a pretty basic python flask app made just to practice the basics of
 
 ## Latest commit:
 
-### On master branch
+## 21/02/2025: Now under the testing branch:
 
-- 21/02/2025:
-  - Added a README.md file to the project.
-  - Added a config.py file to the project.
-  - Added a config_demo.py file to the project.
-  - The app.py file was modified to use the config.py and connect to the database.
+- Updated the app.py so it works with the DB connection.
+- Abstracted the DB connection to a new file called db.py
+- Created the item_model.py file to define the ItemModel class.
+- Created the item_routes.py file to define the item routes.
+
+### Project Documentation
+
+#### Overview
+
+This project is a simple Flask application designed to demonstrate basic CRUD operations with a MongoDB database. It includes routes for creating and retrieving items, with a focus on practicing Python and Flask fundamentals.
+
+#### Project Structure
+
+- **app.py**: The main entry point of the application. It initializes the Flask app and registers the routes.
+- **config.py**: Contains configuration settings, including the MongoDB URI.
+- **db.py**: Manages the connection to the MongoDB database.
+- **routes/item_routes.py**: Defines the API endpoints for creating and retrieving items.
+- **models/item_model.py**: Contains the `ItemModel` class, which represents an item with a unique ID, name, and text.
+- **config_demo.py**: A template for `config.py` to demonstrate how to set up configuration without exposing sensitive information.
+
+#### How It Works
+
+1. **Database Connection**: The application connects to a MongoDB database using the URI specified in `config.py`. The connection is managed in `db.py`.
+
+2. **API Endpoints**:
+   - **Create Item**: POST `/items/create_item` - Accepts JSON data to create a new item in the database.
+   - **Get Items**: GET `/items/get_items` - Retrieves all items from the database and returns them as JSON.
+
+3. **Error Handling**: The application checks for a successful database connection before starting. If the connection fails, it raises an error and prevents the app from running.
+
+4. **Blueprints**: The application uses Flask blueprints to organize routes, making it easier to manage and scale.
+
+#### Running the Application
+
+1. Ensure you have Python and pip installed.
+2. Install the required packages using:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Set up your `config.py` with the correct MongoDB URI.
+4. Run the application:
+   ```bash
+   python app.py
+   ```
+5. Access the API endpoints via a tool like Postman or a web browser.
+
+#### Notes
+
+- Ensure your MongoDB instance is running and accessible.
+- The application is configured to run in debug mode for development purposes.
+
+This documentation provides a basic understanding of how the project is structured and operates. Feel free to expand on it as your project evolves.

@@ -1,12 +1,15 @@
 from flask import Flask
-from pymongo import MongoClient
-from config import Config
+from routes.item_routes import item_api
+from db import db  # Import the db from the new module
 
 app = Flask(__name__)
 
+# Prevent the app from running if MongoDB is not connected
+if db is None:
+    raise RuntimeError("MongoDB connection failed. Exiting...")
 
-client = MongoClient(Config.MONGODB_URI)
-db = client.get_default_database()
+# Register the blueprint
+app.register_blueprint(item_api, url_prefix="/items")
 
 
 @app.route("/")
