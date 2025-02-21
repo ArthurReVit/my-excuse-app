@@ -8,8 +8,7 @@ Sarmi, if you ever see this, yeah, I took the idea behind the repo you shared wi
 
 I was told I needed to learn the fundamentals of some stuff so I decided to do it on a practical way and created this project.
 
-## 21/02/2025: Ready to merge with the master branch:
+## 21/02/2025:
 
-- Updated the item_routes.py file to include the update and delete routes.
-- Tested and proved that the app works as expected.
+- Merge testing branch with master
 

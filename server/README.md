@@ -6,10 +6,9 @@ This will be a pretty basic python flask app made just to practice the basics of
 
 ## Latest commit:
 
-## 21/02/2025: Ready to merge with the master branch:
+## 21/02/2025:
 
-- Updated the item_routes.py file to include the update and delete routes.
-- Tested and proved that the app works as expected.
+- Merge testing branch with master
 
 ### Project Documentation
 
