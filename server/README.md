@@ -2,13 +2,13 @@
 
 ## Description:
 
-This will be a pretty basic python flask app made just to practice the basics of python and flask.
+This will be a pretty basic python flask API made just to practice the basics of python and flask.
 
 ## Latest commit:
 
-## 21/02/2025:
+## 22/02/2025:
 
-- Merge testing branch with master
+- Added CORS to the app
 
 ### Project Documentation
 

@@ -12,3 +12,8 @@ I was told I needed to learn the fundamentals of some stuff so I decided to do i
 
 - Merge testing branch with master
 
+## Docs:
+
+- [Client](client/README.md)
+- [Server](server/README.md)
+
