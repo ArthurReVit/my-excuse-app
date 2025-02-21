@@ -8,14 +8,8 @@ Sarmi, if you ever see this, yeah, I took the idea behind the repo you shared wi
 
 I was told I needed to learn the fundamentals of some stuff so I decided to do it on a practical way and created this project.
 
-## Latest commit:
+## 21/02/2025: Ready to merge with the master branch:
 
-Now working over the testing branch until it gets tested.
-
-## 21/02/2025: Now under the testing branch:
-
-- Updated the app.py so it works with the DB connection.
-- Abstracted the DB connection to a new file called db.py
-- Created the item_model.py file to define the ItemModel class.
-- Created the item_routes.py file to define the item routes.
+- Updated the item_routes.py file to include the update and delete routes.
+- Tested and proved that the app works as expected.
 

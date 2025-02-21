@@ -6,12 +6,10 @@ This will be a pretty basic python flask app made just to practice the basics of
 
 ## Latest commit:
 
-## 21/02/2025: Now under the testing branch:
+## 21/02/2025: Ready to merge with the master branch:
 
-- Updated the app.py so it works with the DB connection.
-- Abstracted the DB connection to a new file called db.py
-- Created the item_model.py file to define the ItemModel class.
-- Created the item_routes.py file to define the item routes.
+- Updated the item_routes.py file to include the update and delete routes.
+- Tested and proved that the app works as expected.
 
 ### Project Documentation
 
@@ -24,7 +22,7 @@ This project is a simple Flask application designed to demonstrate basic CRUD op
 - **app.py**: The main entry point of the application. It initializes the Flask app and registers the routes.
 - **config.py**: Contains configuration settings, including the MongoDB URI.
 - **db.py**: Manages the connection to the MongoDB database.
-- **routes/item_routes.py**: Defines the API endpoints for creating and retrieving items.
+- **routes/item_routes.py**: Defines the API endpoints for creating, retrieving, updating, and deleting items.
 - **models/item_model.py**: Contains the `ItemModel` class, which represents an item with a unique ID, name, and text.
 - **config_demo.py**: A template for `config.py` to demonstrate how to set up configuration without exposing sensitive information.
 
@@ -35,8 +33,10 @@ This project is a simple Flask application designed to demonstrate basic CRUD op
 2. **API Endpoints**:
    - **Create Item**: POST `/items/create_item` - Accepts JSON data to create a new item in the database.
    - **Get Items**: GET `/items/get_items` - Retrieves all items from the database and returns them as JSON.
+   - **Update Item**: PUT `/items/update_item` - Updates an existing item in the database based on its `_id`. Requires `_id`, `name`, and `text` in the request JSON.
+   - **Delete Item**: DELETE `/items/delete_item` - Deletes an item from the database based on its `_id`. Requires `_id` in the request JSON.
 
-3. **Error Handling**: The application checks for a successful database connection before starting. If the connection fails, it raises an error and prevents the app from running.
+3. **Error Handling**: The application checks for a successful database connection before starting. If the connection fails, it raises an error and prevents the app from running. Each route also includes error handling to manage database operation failures.
 
 4. **Blueprints**: The application uses Flask blueprints to organize routes, making it easier to manage and scale.
 

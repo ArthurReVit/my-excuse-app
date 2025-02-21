@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from models.item_model import ItemModel
 from db import db  # Import the db from the new module
+from bson.objectid import ObjectId  # Import ObjectId to work with MongoDB IDs
 
 item_api = Blueprint("item_api", __name__)
 
@@ -38,3 +39,47 @@ def get_items():
         return jsonify(items_list), 200
     except Exception as e:
         return jsonify({"error": f"Failed to fetch items: {e}"}), 500
+
+
+@item_api.route("/update_item", methods=["PUT"])
+def update_item():
+    data = request.json
+
+    if not data or not data.get("_id") or not data.get("name") or not data.get("text"):
+        return jsonify({"error": "Missing required fields"}), 400
+
+    try:
+        result = db.items.update_one(
+            {"_id": data.get("_id")},
+            {
+                "$set": {
+                    "name": data.get("name"),
+                    "text": data.get("text"),
+                }
+            },
+        )
+
+        if result.matched_count == 0:
+            return jsonify({"error": "Item not found"}), 404
+    except Exception as e:
+        return jsonify({"error": f"Failed to update item: {e}"}), 500
+
+    return jsonify({"message": "Item updated successfully"}), 200
+
+
+@item_api.route("/delete_item", methods=["DELETE"])
+def delete_item():
+    data = request.json
+
+    if not data or not data.get("_id"):
+        return jsonify({"error": "Missing required fields"}), 400
+
+    try:
+        result = db.items.delete_one({"_id": data.get("_id")})
+
+        if result.deleted_count == 0:
+            return jsonify({"error": "Item not found"}), 404
+    except Exception as e:
+        return jsonify({"error": f"Failed to delete item: {e}"}), 500
+
+    return jsonify({"message": "Item deleted successfully"}), 200
